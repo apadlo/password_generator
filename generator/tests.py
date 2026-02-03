@@ -41,7 +41,7 @@ class PasswordGeneratorTestCase(TestCase):
     def test_password_uniqueness(self):
         """Test that generated passwords are different (with high probability)"""
         passwords = set()
-        for _ in range(10):
+        for _ in range(100):
             response = self.client.get(reverse('password'), {
                 'length': '12',
                 'uppercase': 'on',
@@ -49,5 +49,6 @@ class PasswordGeneratorTestCase(TestCase):
                 'numbers': 'on'
             })
             passwords.add(response.context['password'])
-        # With secrets module, we should get 10 unique passwords
-        self.assertEqual(len(passwords), 10)
+        # With secrets module and a large character set, we should get highly unique passwords
+        # We expect at least 99 out of 100 to be unique
+        self.assertGreaterEqual(len(passwords), 99)
