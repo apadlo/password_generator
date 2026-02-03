@@ -98,7 +98,9 @@ password_generator/
 
 ## 🔒 Security Note
 
-This password generator uses Python's `random` module which is suitable for most purposes. For cryptographically secure passwords in production environments, consider using `secrets` module instead.
+⚠️ **Important**: This password generator currently uses Python's `random` module, which is **NOT** cryptographically secure. For production use or generating passwords that protect sensitive data, the code should be updated to use Python's `secrets` module instead.
+
+**Recommended improvement**: Replace `random.choice()` with `secrets.choice()` in `generator/views.py` for cryptographically secure password generation.
 
 ## 📝 About
 
