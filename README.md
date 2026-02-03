@@ -98,9 +98,7 @@ password_generator/
 
 ## 🔒 Security Note
 
-⚠️ **Important**: This password generator currently uses Python's `random` module, which is **NOT** cryptographically secure. For production use or generating passwords that protect sensitive data, the code should be updated to use Python's `secrets` module instead.
-
-**Recommended improvement**: Replace `random.choice()` with `secrets.choice()` in `generator/views.py` for cryptographically secure password generation.
+✅ **Cryptographically Secure**: This password generator uses Python's `secrets` module, which is designed for cryptographically secure password generation. The `secrets` module is suitable for generating passwords in production environments and for protecting sensitive data.
 
 **Note on password length**: The current maximum length is 14 characters. For stronger security, modern guidelines recommend passwords of at least 16-20 characters. Consider this when using generated passwords for sensitive accounts.
 
