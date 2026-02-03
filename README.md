@@ -102,6 +102,8 @@ password_generator/
 
 **Recommended improvement**: Replace `random.choice()` with `secrets.choice()` in `generator/views.py` for cryptographically secure password generation.
 
+**Note on password length**: The current maximum length is 14 characters. For stronger security, modern guidelines recommend passwords of at least 16-20 characters. Consider this when using generated passwords for sensitive accounts.
+
 ## 📝 About
 
 This is a simple Django web application created to demonstrate:
