@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 from django.http import HttpResponse
 from django.shortcuts import render
-import random
+import secrets
 
 # Create your views here.
 def home(request):
@@ -24,7 +24,7 @@ def password(request):
     pwd = ''
 
     for x in range(length):
-        pwd += random.choice(characters)
+        pwd += secrets.choice(characters)
 
     return render(request, 'generator/password.html', {'password': pwd})
 
